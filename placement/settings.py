@@ -30,15 +30,23 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+SYSTEM_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'webapp.apps.WebappConfig',
 ]
+
+LOCAL_APPS = [
+    'webapp.apps.WebappConfig',
+    'webapp.authentication.apps.AuthenticationConfig',
+    'webapp.users.apps.UsersConfig',
+    'webapp.dashboard.apps.DashboardConfig',
+]
+
+INSTALLED_APPS = SYSTEM_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -50,12 +58,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'placement.urls'
+ROOT_URLCONF = 'webapp.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [os.path.join(BASE_DIR, 'webapp/templates')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
