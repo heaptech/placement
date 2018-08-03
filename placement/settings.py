@@ -46,7 +46,11 @@ LOCAL_APPS = [
     'webapp.dashboard.apps.DashboardConfig',
 ]
 
-INSTALLED_APPS = SYSTEM_APPS + LOCAL_APPS
+THIRD_PARTY_APPS = [
+    'sass_processor',
+]
+
+INSTALLED_APPS = SYSTEM_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -123,8 +127,15 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'sass_processor.finders.CssFinder',
+]
+
+from placement.apps_settings.sass_processor import *
