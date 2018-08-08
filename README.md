@@ -10,4 +10,7 @@ Placement is a RBAC Resource Management System and users will be added through v
 - Filteration of users on Skills, Geo Location, Project, Education etc. 
 
 ## Technologies Used:
-Placement is being built using Django. 
+- [Django](https://www.djangoproject.com/)
+- [Django Compressor](https://django-compressor.readthedocs.io/en/latest/)
+- [Django Sass Processor](https://github.com/jrief/django-sass-processor)
+- [Django Live Reload Server](https://github.com/tjwalch/django-livereload-server)
